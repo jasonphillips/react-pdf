@@ -416,6 +416,9 @@ var _initialiseProps = function _initialiseProps() {
   };
 };
 
+var FileClass = typeof File !== 'undefined' ? File : {};
+var BlobClass = typeof Blob !== 'undefined' ? Blob : {};
+
 ReactPDF.defaultProps = {
   error: 'Failed to load PDF file.',
   loading: 'Loading PDF…',
@@ -427,7 +430,7 @@ ReactPDF.defaultProps = {
 
 ReactPDF.propTypes = {
   error: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.node]),
-  file: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.instanceOf(File), _propTypes2.default.instanceOf(Blob), _propTypes2.default.shape({
+  file: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.instanceOf(FileClass), _propTypes2.default.instanceOf(BlobClass), _propTypes2.default.shape({
     data: _propTypes2.default.object,
     httpHeaders: _propTypes2.default.object,
     range: _propTypes2.default.object,

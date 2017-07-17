@@ -360,6 +360,9 @@ class ReactPDF extends Component {
   }
 }
 
+var FileClass = (typeof(File)!=='undefined') ? File : {};
+var BlobClass = (typeof(Blob)!=='undefined') ? Blob : {};
+
 ReactPDF.defaultProps = {
   error: 'Failed to load PDF file.',
   loading: 'Loading PDF…',
@@ -376,8 +379,8 @@ ReactPDF.propTypes = {
   ]),
   file: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.instanceOf(File),
-    PropTypes.instanceOf(Blob),
+    PropTypes.instanceOf(FileClass),
+    PropTypes.instanceOf(BlobClass),
     PropTypes.shape({
       data: PropTypes.object,
       httpHeaders: PropTypes.object,
